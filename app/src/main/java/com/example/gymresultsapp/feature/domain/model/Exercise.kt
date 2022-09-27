@@ -1,10 +1,15 @@
 package com.example.gymresultsapp.feature.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Exercise(
     val group: Group,
     val name: String,
     val availableWeight: List<Float>,
-    val sets: List<Set>
+    val sets: List<Set>,
+    @PrimaryKey val id: Int? = null
 )
 
 enum class Group {
