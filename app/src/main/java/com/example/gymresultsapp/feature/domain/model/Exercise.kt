@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 data class Exercise(
     val group: Group,
     val name: String,
-    val availableWeight: List<Float>,
     val sets: List<Set>,
     @PrimaryKey val id: Int? = null
 )
