@@ -1,11 +1,12 @@
 package com.example.gymresultsapp.feature.domain.repository
 
 import com.example.gymresultsapp.feature.domain.model.Exercise
+import com.example.gymresultsapp.feature.domain.model.Group
 import kotlinx.coroutines.flow.Flow
 
 interface ExerciseRepository {
 
-    fun getExercises(): Flow<List<Exercise>>
+    fun getDayExercises(day: Int): Flow<List<Exercise>>
 
     suspend fun getExerciseById(id: Int): Exercise?
 

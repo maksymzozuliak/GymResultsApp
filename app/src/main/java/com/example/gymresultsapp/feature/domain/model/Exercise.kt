@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class Exercise(
     val group: Group,
-    val name: String,
+    val day: Int,
+    val name: String ,
     val sets: List<Set>,
     @PrimaryKey val id: Int? = null
 )
