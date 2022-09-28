@@ -2,14 +2,15 @@ package com.example.gymresultsapp.feature.data.repository
 
 import com.example.gymresultsapp.feature.data.data_source.ExerciseDao
 import com.example.gymresultsapp.feature.domain.model.Exercise
+import com.example.gymresultsapp.feature.domain.model.Group
 import com.example.gymresultsapp.feature.domain.repository.ExerciseRepository
 import kotlinx.coroutines.flow.Flow
 
 class ExerciseRepositoryImplementation(
     private val dao: ExerciseDao
 ): ExerciseRepository {
-    override fun getExercises(): Flow<List<Exercise>> {
-        return dao.getExercises()
+    override fun getDayExercises(day: Int): Flow<List<Exercise>> {
+        return dao.getDayExercises(day)
     }
 
     override suspend fun getExerciseById(id: Int): Exercise? {
