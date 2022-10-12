@@ -13,17 +13,28 @@ data class Exercise(
     @PrimaryKey val id: Int? = null
 )
 
-enum class Group(val color : Color) {
-    CHEST(Color.Black),
-    BACK(Color.Black),
-    LEGS(Color.Black),
-    BICEPS(Color.Black),
-    TRICEPS(Color.Black),
-    SHOULDERS(Color.Black);
+enum class Group(val color : Color, val day: Int, val string: String) {
+    CHEST(Color.Blue, 1, "Chest"),
+    BACK(Color.Green, 2, "Back"),
+    LEGS(Color.Gray, 3, "Legs"),
+    BICEPS(Color.Cyan, 1, "Biceps"),
+    TRICEPS(Color.Magenta, 2, "Triceps"),
+    SHOULDERS(Color.Red, 3, "Shoulders");
+}
+
+fun String.toGroup() : Group {
+    return when(this) {
+        "Chest" -> Group.CHEST
+        "Back" -> Group.BACK
+        "Legs" -> Group.LEGS
+        "Biceps" -> Group.BICEPS
+        "Triceps" -> Group.TRICEPS
+        "Shoulders" -> Group.SHOULDERS
+        else -> Group.CHEST
+    }
 }
 
 data class Set(
-    val num: Int,
-    val reps: Int,
-    val weight: Float
+    val weight: String,
+    val reps: Int
 )
