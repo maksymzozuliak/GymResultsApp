@@ -2,7 +2,13 @@ package com.example.gymresultsapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val backgroundColor = Color(0xFF13152A)
+val lightGray = Color(0xFFdee2e6)
+val gray = Color(0xFFced5db)
+val darkGray = Color(0xFFbdc3c9)
+val oxfordBlue = Color(0xFF142135)
+val blueGray = Color(0xFF243d52)
+val prussianBlue = Color(0xFF274259)
+val blue = Color(0xFF5B75C7)
+val purple = Color(0xFF5852ab)
+

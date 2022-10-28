@@ -1,7 +1,10 @@
 package com.example.gymresultsapp.feature.presentation.add_edit_exercise_screen.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
@@ -21,13 +24,13 @@ fun AddRemoveSetButton(
 ) {
     Button(
         onClick = onClick,
+        shape = CircleShape,
         modifier = Modifier
-            .padding(bottom = 34.dp)
-            .background(Color.Green)
+            .size(50.dp)
     )  {
         Icon(
             imageVector = icon,
-            contentDescription = "Save exercise",
+            contentDescription = "Change sets",
             tint = Color.White
         )
     }

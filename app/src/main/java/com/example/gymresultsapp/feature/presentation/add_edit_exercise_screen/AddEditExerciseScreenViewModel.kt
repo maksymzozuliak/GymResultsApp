@@ -78,7 +78,7 @@ class AddEditExerciseScreenViewModel @Inject constructor(
                         Exercise(
                             name = exerciseName.value.text,
                             id = currentExerciseId,
-                            day = 1,
+                            day = exerciseGroup.value.day,
                             sets = exerciseSets.value,
                             group = exerciseGroup.value
                         )

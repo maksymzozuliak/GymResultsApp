@@ -26,7 +26,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
-private const val AnimationDurationMillis = 250
+private const val AnimationDurationMillis = 200
 
 @Stable
 interface MultiSelectorState {
@@ -165,7 +165,7 @@ fun MultiplySelector(
     onOptionSelect: (String) -> Unit,
     modifier: Modifier = Modifier,
     selectedColor: Color = MaterialTheme.colors.onPrimary,
-    unselectedColor: Color = MaterialTheme.colors.onSurface,
+    unselectedColor: Color = MaterialTheme.colors.onSecondary,
     state: MultiSelectorState = rememberMultiSelectorState(
         options = options,
         selectedOption = selectedOption,
@@ -179,10 +179,9 @@ fun MultiplySelector(
     Layout(
         modifier = modifier
             .clip(
-                shape = RoundedCornerShape(percent = 50)
+                shape = RoundedCornerShape(percent = 100)
             )
-            .background(MaterialTheme.colors.surface)
-            .height(100.dp),
+            .background(MaterialTheme.colors.secondary),
         content = {
             val colors = state.textColors
             options.forEachIndexed { index, option ->

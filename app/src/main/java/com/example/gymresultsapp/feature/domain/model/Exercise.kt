@@ -3,6 +3,9 @@ package com.example.gymresultsapp.feature.domain.model
 import androidx.compose.ui.graphics.Color
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.gymresultsapp.ui.theme.blue
+import com.example.gymresultsapp.ui.theme.purple
+import kotlin.random.Random
 
 @Entity
 data class Exercise(
@@ -13,13 +16,13 @@ data class Exercise(
     @PrimaryKey val id: Int? = null
 )
 
-enum class Group(val color : Color, val day: Int, val string: String) {
-    CHEST(Color.Blue, 1, "Chest"),
-    BACK(Color.Green, 2, "Back"),
-    LEGS(Color.Gray, 3, "Legs"),
-    BICEPS(Color.Cyan, 1, "Biceps"),
-    TRICEPS(Color.Magenta, 2, "Triceps"),
-    SHOULDERS(Color.Red, 3, "Shoulders");
+enum class Group(val primary: Boolean, val day: Int, val string: String, val color : Color = (if (primary) blue else purple)) {
+    CHEST(true, 1, "Chest"),
+    BACK(true, 2, "Back"),
+    LEGS(true, 3, "Legs"),
+    BICEPS(false, 1, "Biceps"),
+    TRICEPS(false, 2, "Triceps"),
+    SHOULDERS(false, 3, "Shoulders");
 }
 
 fun String.toGroup() : Group {
@@ -37,4 +40,5 @@ fun String.toGroup() : Group {
 data class Set(
     val weight: String,
     val reps: Int
-)
+) {
+}

@@ -25,6 +25,9 @@ class ExercisesScreenViewModel @Inject constructor(
 
     private var recentlyDeletedExercise: Exercise? = null
 
+    private val _day = mutableStateOf("Monday")
+    val day: State<String> = _day
+
     init {
         getExercises(1)
     }
@@ -44,7 +47,8 @@ class ExercisesScreenViewModel @Inject constructor(
                 }
             }
             is ExerciseEvent.ChangeDay ->{
-                getExercises(event.day)
+                _day.value = event.day
+                getExercises(event.day.toIntDay())
             }
         }
     }
@@ -56,5 +60,14 @@ class ExercisesScreenViewModel @Inject constructor(
                 _list.value = exercise
             }
             .launchIn(viewModelScope)
+    }
+
+    private fun String.toIntDay(): Int {
+        return when(this) {
+            "Monday" -> 1
+            "Wednesday" -> 2
+            "Friday" -> 3
+            else -> {1}
+        }
     }
 }
